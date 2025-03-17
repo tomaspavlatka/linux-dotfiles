@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+dry_run="0"
+
+if [ -z "$DEV_ENV_HOME" ]; then
+    echo "env var DEV_ENV_HOME needs to be present"
+    exit 1
+fi
+
+if [[ $1 == "--dry" ]]; then
+    dry_run="1"
+fi
+
+log() {
+    if [[ $dry_run == "1" ]]; then
+        echo "[DRY_RUN]: $1"
+    else
+        echo "$1"
+    fi
+}
+
+log "env: $script_dir"
+
