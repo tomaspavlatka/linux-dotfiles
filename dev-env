@@ -14,12 +14,13 @@ ZSH_THEME="robbyrussell"
 # Aliases
 alias v="/usr/bin/nvim"
 alias vim="/usr/bin/nvim"
-alias vol:up="wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+ -l 1.5"
-alias vol:down="wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- -l 1.5"
-alias vol:mute="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+alias vol:up="amixer set Master 10%+"
+alias vol:down="amixer set Master 10%-"
+alias vol:mute="amixer set Master toggle"
 alias tab:rename="wezterm cli set-tab-title "
 
-plugins=(git)
+# Inspired here: https://catalins.tech/zsh-plugins/
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use)
 
 source $ZSH/oh-my-zsh.sh
 
